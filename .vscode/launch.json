@@ -1,0 +1,34 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "{{project-name}}",
+            "type": "lldb",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/target/debug/{{project-name}}",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin={{project-name}}"
+                ]
+            },
+            "args": [],
+            "preLaunchTask": "cargo build"
+        },
+        {
+            "name": "tests {{project-name}}",
+            "type": "lldb",
+            "request": "launch",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run"
+                ]
+            }
+        }
+    ]
+}

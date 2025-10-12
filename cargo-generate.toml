@@ -1,6 +1,20 @@
 [template]
-exclude = [
-    "cliff.toml",
-    "Cargo.lock",
-    "target/"
-]
+cargo_generate_version = ">=0.10.0"
+# 模板名称
+name = "Rust Template"
+# 说明
+description = "A Rust project template"
+
+# 排除文件
+exclude = ["cliff.toml", "Cargo.lock", "target/", ".DS_Store"]
+
+# 在生成时让用户输入自定义变量
+[placeholders]
+description = { type = "string", prompt = "Description for the crate?", default = "A Rust project" }
+author = { type = "string", prompt = "Your name?", default = "Anonymous" }
+license = { type = "string", prompt = "License type?", choices = [
+    "MIT",
+    "Apache-2.0",
+    "GPL-3.0",
+    "BSD-3-Clause",
+], default = "MIT" }
